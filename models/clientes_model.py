@@ -13,5 +13,4 @@ class clientes_model(models.Model):
     foto = fields.Binary(string="Foto")
     apellidos = fields.Char(string="Apellidos", required=True)
     telf = fields.Integer(string="Teléfono")
-    facturas = fields.One2many("empresa.facturas_model","facturas_id", string="Facturas")
-    clientes_id = fields.Many2many("empresa.clientes_model", "Clientes")
+    facturas = fields.One2many("empresa.facturas_model","cliente", string="Facturas")
