@@ -10,7 +10,7 @@ class clientes_model(models.Model):
 
     name = fields.Char(string="Nombre", required=True)
     dni = fields.Char(string="DNI", required=True)
-    foto = fields.Binary(string="Foto")
+    foto = fields.Binary(string="Foto", required="False")
     apellidos = fields.Char(string="Apellidos", required=True)
     telf = fields.Integer(string="Teléfono")
     facturas = fields.One2many("empresa.facturas_model","cliente", string="Facturas")
