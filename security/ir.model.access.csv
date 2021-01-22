@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_empresa_empresa,empresa.empresa,model_empresa_empresa,base.group_user,1,1,1,1
+access_empresa_clientes_model,access_empresa_clientes_model,model_empresa_clientes_model,base.group_user,1,1,1,1
+access_empresa_productos_model,access_empresa_productos_model,model_empresa_productos_model,base.group_user,1,1,1,1
+access_empresa_facturas_model,access_empresa_facturas_model,model_empresa_facturas_model,base.group_user,1,1,1,1
