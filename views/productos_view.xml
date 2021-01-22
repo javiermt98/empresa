@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="empresa.lista_productos_tree">
+            <field name="name">Productos</field>
+            <field name="model">empresa.productos_model</field>
+            <field name="arch" type="xml">
+                <tree>
+                   
+                        <field name="name" />
+                        <field name="descripcion" />
+                        <field name="pvp" />
+                   
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="empresa.lista_productos_form">
+            <field name="name">Productos</field>
+            <field name="model">empresa.productos_model</field>
+            <field name="arch" type="xml">
+                <form string="Nueva Factura">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="descripcion" />
+                            <field name="pvp" />
+                            
+
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="empresa.action_window_productos">
+            <field name="name">Productos</field>
+            <field name="res_model">empresa.productos_model</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

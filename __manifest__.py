@@ -24,12 +24,18 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
+        'security/ir.model.access.csv',
+        'views/clientes_view.xml',
+        'views/productos_view.xml',
+        'views/facturas_view.xml',
+        'views/menu_view.xml',
         'views/templates.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    'application':True,
+    'installable':True,
 }

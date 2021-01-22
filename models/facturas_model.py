@@ -9,12 +9,11 @@ class facturas_model(models.Model):
 
     name = fields.Char(string="Referencia", required=True)
     fecha = fields.Date(string="Fecha", required=True, default=date.today())
-    cliente = fields.One2many("empresa.clientes_model", "name", string="Cliente")
-    productos_id = fields.Many2one("empresa.productos_model", string="Productos")
+    cliente = fields.Many2one("empresa.clientes_model", string="Cliente")
+    productos_id = fields.One2many("empresa.productos_model", "facturas_id" ,string="Productos")
     base = fields.Float(string="Base", compute="_calc_base")
-    iva = fields.Selection(string="IVA", default=21, selection=[(21),(15),(7),(0)], required=True)
+    iva = fields.Selection(string="IVA", default='21', selection=[('21','21'),('15', '15'),('7', '7'),('0', '0')], required=True)
     total = fields.Float(string="Total", compute="_calc_iva")
-    facturas_id = fields.Many2one("empresa.clientes_model", string="Facturas")
 
     @api.depends('productos_id')
     def _calc_base(self):
@@ -25,5 +24,5 @@ class facturas_model(models.Model):
 
     @api.depends('iva', 'base')
     def _calc_iva(self):
-        self.total = (self.base*self.iva)/100
+        self.total = ((self.base*int(self.iva))/100)+self.base
         
