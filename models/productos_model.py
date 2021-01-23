@@ -10,4 +10,4 @@ class productos_model(models.Model):
     name = fields.Char(string="Nombre", required=True)
     descripcion = fields.Html(string="Descripcion", required=True)
     pvp = fields.Float(string="PVP", default=0 , required=True)
-    facturas_id = fields.Many2one("empresa.facturas_model", "Facturas")
+    facturas_id = fields.Many2many("empresa.facturas_model", "Facturas")

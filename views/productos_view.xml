@@ -27,8 +27,6 @@
                             <field name="name" />
                             <field name="descripcion" />
                             <field name="pvp" />
-                            
-
                         </group>
 
                     </sheet>
