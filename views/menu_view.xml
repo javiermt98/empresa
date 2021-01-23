@@ -9,9 +9,9 @@
         <menuitem name="Operaciones" id="empresa.menu_operaciones" parent="empresa.menu_root" />
 
         <!-- actions -->
-
-        <menuitem name="Facturas" id="empresa.menu_facturas_list" parent="empresa.menu_operaciones" action="empresa.action_window_facturas" />
+        
         <menuitem name="Clientes" id="empresa.menu_clientes_list" parent="empresa.menu_operaciones" action="empresa.action_window_clientes" />
+        <menuitem name="Facturas" id="empresa.menu_facturas_list" parent="empresa.menu_operaciones" action="empresa.action_window_facturas" />
         <menuitem name="Productos" id="empresa.menu_productos_list" parent="empresa.menu_operaciones" action="empresa.action_window_productos" />
 
 

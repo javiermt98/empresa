@@ -28,6 +28,7 @@
         'views/clientes_view.xml',
         'views/productos_view.xml',
         'views/facturas_view.xml',
+        'views/detfac_view.xml',
         'views/menu_view.xml',
         'views/templates.xml',
 

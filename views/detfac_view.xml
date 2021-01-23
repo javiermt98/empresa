@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="empresa.list_detfac_tree">
+            <field name="name">detfac</field>
+            <field name="model">empresa.detfac_model</field>
+            <field name="arch" type="xml">
+                <tree>
+                        <field name="facturas_id" />
+                        <field name="productos_id" />
+                        <field name="cantidad" />
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="empresa.list_detfac_form">
+            <field name="name">detfac</field>
+            <field name="model">empresa.detfac_model</field>
+            <field name="arch" type="xml">
+                <form string="Nueva Factura">
+                    <sheet>
+                        <group>
+
+                            <field name="facturas_id" />
+                            <field name="productos_id" />
+                            <field name="cantidad" />
+
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="empresa.action_window_detfac">
+            <field name="name">detfac</field>
+            <field name="res_model">empresa.detfac_model</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

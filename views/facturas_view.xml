@@ -33,7 +33,13 @@
                             <field name="base" />
                             <field name="iva" />
                             <field name="total" />
-                            <field name="productos_id" />
+                            <field name="detallef">
+                                <tree>
+                                    <field name="productos_id" />
+                                    <field name="cantidad" />
+                                </tree>
+                            </field>
+
                         </group>
 
                     </sheet>

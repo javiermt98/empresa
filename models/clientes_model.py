@@ -10,9 +10,10 @@ class clientes_model(models.Model):
 
     name = fields.Char(string="Nombre", required=True)
     dni = fields.Char(string="DNI", required=True)
-    foto = fields.Binary(string="Foto", required="False")
+    foto = fields.Binary(string="Foto", required=False)
     apellidos = fields.Char(string="Apellidos", required=True)
-    telf = fields.Integer(string="Teléfono")
+    telf = fields.Integer(string="Teléfono", size=9)
+    email = fields.Char(string="Email", required=True)
     facturas = fields.One2many("empresa.facturas_model","cliente", string="Facturas")
 
     @api.constrains("dni")
@@ -32,3 +33,8 @@ class clientes_model(models.Model):
             else:
                 
                 raise ValidationError("La letra no coincide con el DNI")
+
+    @api.constrains("email")
+    def _comprobarEmail(self):
+        if "@" and "." not in self.email:
+            raise ValidationError("El email no es correcto. Debe contener al menos @ y .")

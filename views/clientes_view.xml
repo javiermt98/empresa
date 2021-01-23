@@ -11,8 +11,8 @@
                     <field name="name" />
                     <field name="apellidos" />
                     <field name="dni" />
-                    <field name="foto" widget="image" />
-                    <field name="telf" />
+                    <field name="telf" widget="phone"/>
+                    <field name="email" widget="email"/>
                     <field name="facturas" widget="many2many_tags" />
 
                 </tree>
@@ -30,8 +30,9 @@
                             <field name="name" />
                             <field name="apellidos" />
                             <field name="dni" />
-                            <field name="foto" />
+                            <field name="foto" widget="image" />
                             <field name="telf" />
+                            <field name="email" widget="email"/>
                             <field name="facturas">
                                 <tree>
                                     <field name="name" />
