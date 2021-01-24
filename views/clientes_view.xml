@@ -34,13 +34,7 @@
                             <field name="telf" />
                             <field name="email" widget="email"/>
                             <field name="facturas">
-                                <tree>
-                                    <field name="name" />
-                                    <field name="fecha" />
-                                    <field name="base" />
-                                    <field name="iva" />
-                                    <field name="total" />
-                                </tree>
+
                             </field>
                         </group>
 
