@@ -20,6 +20,8 @@
         </record>
 
 
+
+
         <record model="ir.ui.view" id="empresa.list_facturas_form">
             <field name="name">Facturas</field>
             <field name="model">empresa.facturas_model</field>
@@ -47,13 +49,24 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="empresa.list_facturas_graph">
+            <field name="name">Gráfico Facturas</field>
+            <field name="model">empresa.facturas_model</field>
+            <field name="arch" type="xml">
+                <graph type="bar" order="asc">
+                    <field name="cliente" type="row"/>
+                    <field name="total" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
 
         <!-- actions opening views on models -->
 
         <record model="ir.actions.act_window" id="empresa.action_window_facturas">
             <field name="name">Facturas</field>
             <field name="res_model">empresa.facturas_model</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph</field>
         </record>
     </data>
 </odoo>
