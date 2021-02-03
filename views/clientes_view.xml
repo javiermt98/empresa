@@ -15,6 +15,7 @@
                 </tree>
             </field>
         </record>
+
         <record model="ir.ui.view" id="empresa.listado_clientes_form">
             <field name="name">Clientes</field>
             <field name="model">empresa.clientes_model</field>
@@ -73,11 +74,12 @@
                 </kanban>
             </field>
         </record>
+
         <!-- actions opening views on models -->
         <record model="ir.actions.act_window" id="empresa.action_window_clientes">
             <field name="name">Clientes</field>
             <field name="res_model">empresa.clientes_model</field>
-            <field name="view_mode">tree,form,kanban,graph</field>
+            <field name="view_mode">tree,form,kanban</field>
         </record>
         <!-- server action to the one above -->
         <!--

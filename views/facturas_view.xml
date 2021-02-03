@@ -19,6 +19,19 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="empresa.list_facturas_calendar">
+            <field name="name">Calendario Facturas</field>
+            <field name="model">empresa.facturas_model</field>
+            <field name="arch" type="xml">
+              <calendar date_start="fecha" color="cliente" mode="week" form_view_id="empresa.list_facturas_form" quick_add="False" event_open_popup="True" >
+      
+              <field name="cliente" />
+              <field name="total" />
+      
+              </calendar>
+          </field>
+      
+          </record>
 
 
 
@@ -60,13 +73,28 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="empresa.list_facturas_pivot">
+            <field name="name">Pivot Facturas</field>
+            <field name="model">empresa.facturas_model</field>
+            <field name="arch" type="xml">
+              <pivot string="Pivot de Facturas">
+      
+              <field name="cliente" />
+              <field name="detallef" />
+              <field name="fecha" type="row" interval="month"/>
+              <field name="total" type="measure" />
+      
+              </pivot>
+          </field>
+          </record>
+
 
         <!-- actions opening views on models -->
 
         <record model="ir.actions.act_window" id="empresa.action_window_facturas">
             <field name="name">Facturas</field>
             <field name="res_model">empresa.facturas_model</field>
-            <field name="view_mode">tree,form,graph</field>
+            <field name="view_mode">tree,form,graph,calendar,pivot</field>
         </record>
     </data>
 </odoo>
