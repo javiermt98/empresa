@@ -1,100 +1,107 @@
 <odoo>
-    <data>
-        <!-- explicit list view definition -->
-        <record model="ir.ui.view" id="empresa.listado_clientes_tree">
-            <field name="name">Clientes</field>
-            <field name="model">empresa.clientes_model</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="name" />
-                    <field name="apellidos" />
-                    <field name="dni" />
-                    <field name="telf" widget="phone"/>
-                    <field name="email" widget="email"/>
-                    <field name="facturas" widget="many2many_tags" />
-                </tree>
-            </field>
+	<data>
+		<!-- explicit list view definition -->
+		<record model="ir.ui.view" id="empresa.listado_clientes_tree">
+			<field name="name">	Clientes</field>
+			<field name="model">empresa.clientes_model</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="apellidos" />
+					<field name="dni" />
+					<field name="telf" widget="phone" />
+					<field name="email" widget="email" />
+					<field name="facturas" widget="many2many_tags" />
+				</tree>
+			</field>
         </record>
-
-        <record model="ir.ui.view" id="empresa.listado_clientes_form">
-            <field name="name">Clientes</field>
-            <field name="model">empresa.clientes_model</field>
-            <field name="arch" type="xml">
-                <form string="Nuevo Cliente">
-                    <sheet>
-                        <group>
-                            <field name="name" />
-                            <field name="apellidos" />
-                            <field name="dni" />
-                            <field name="foto" widget="image" />
-                            <field name="telf" />
-                            <field name="email" widget="email"/>
-                            <field name="facturas">
-
-                            </field>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-
         
-        <record model="ir.ui.view" id="empresa.listado_clientes_kanban">
-            <field name="name">Kanban Clientes</field>
-            <field name="model">empresa.clientes_model</field>
-            <field name="arch" type="xml">
-            <kanban>
-                <field name="id" />
-                <field name="name" />
-                <field name="apellidos" />
-                <field name="dni" />
-                <field name="foto"/>
-                <field name="telf" />
-                <field name="email"/>
-                <field name="facturas"/>
-                    <templates>
-                        <t t-name="kanban-box">
-                            <div t-attf-class="oe_kanban_global_click">
-                                <div class="o_kanban_image">
-                                    <img  t-att-src="kanban_image('empresa.clientes_model','foto',record.id.raw_value)" alt="image"/>
-                                </div>
-                                <div class="oe_kanban_details">
-                                    <strong class="o_kanban_record_title">
-                                        <field name="name"/>
-                                        <field name="apellidos" class="oe_inline"/>
-                                    </strong>
-                                    <div t-if="record.email.value">
-                                        <t t-esc="record.email.value"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </t>
-                    </templates>
-                </kanban>
-            </field>
-        </record>
+		<record model="ir.ui.view" id="empresa.listado_clientes_form">
+			<field name="name">Clientes</field>
+			<field name="model">empresa.clientes_model</field>
+			<field name="arch" type="xml">
+				<form string="Nuevo Cliente">
+					<sheet>
+						<notebook>
+							<page string="Cliente">
+								<group>
+									<group>
+										<field name="foto" widget="image" class="oe_avatar"/>
 
-        <!-- actions opening views on models -->
-        <record model="ir.actions.act_window" id="empresa.action_window_clientes">
-            <field name="name">Clientes</field>
-            <field name="res_model">empresa.clientes_model</field>
-            <field name="view_mode">tree,form,kanban</field>
-        </record>
-        <!-- server action to the one above -->
-        <!--
-      <record model="ir.actions.server" id="empresa.action_server">
-        <field name="name">empresa server</field>
-        <field name="model_id" ref="model_empresa_empresa"/>
-        <field name="state">code</field>
-        <field name="code">
-          action = {
-            "type": "ir.actions.act_window",
-            "view_mode": "tree,form",
-            "res_model": model._name,
-          }
-        </field>
-      </record>
-  -->
-    </data>
+									</group>
+									<group>
+									<field name="name" />
+									<field name="apellidos" />
+									<field name="dni" />
+									<field name="telf" />
+									<field name="email" />
+								</group>
+								</group>
+                            </page>
+                            <page string="Factura">
+                                <group>
+                                <field name="facturas" />
+                            </group>
+                            </page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="empresa.listado_clientes_kanban">
+			<field name="name">Kanban Clientes</field>
+			<field name="model">empresa.clientes_model</field>
+			<field name="arch" type="xml">
+				<kanban>
+					<field name="id" />
+					<field name="name" />
+					<field name="apellidos" />
+					<field name="dni" />
+					<field name="foto" />
+					<field name="telf" />
+					<field name="email" />
+					<field name="facturas" />
+					<templates>
+						<t t-name="kanban-box">
+							<div t-attf-class="oe_kanban_global_click">
+								<div class="o_kanban_image">
+									<img t-att-src="kanban_image('empresa.clientes_model','foto',record.id.raw_value)" alt="image" />
+								</div>
+								<div class="oe_kanban_details">
+									<strong class="o_kanban_record_title">
+										<field name="name" />
+										<field name="apellidos" class="oe_inline" />
+									</strong>
+									<div t-if="record.email.value">
+										<t t-esc="record.email.value" />
+									</div>
+								</div>
+							</div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+		<!-- actions opening views on models -->
+		<record model="ir.actions.act_window" id="empresa.action_window_clientes">
+			<field name="name">Clientes</field>
+			<field name="res_model">empresa.clientes_model</field>
+			<field name="view_mode">tree,form,kanban</field>
+		</record>
+		<!-- server action to the one above -->
+		<!--
+		<record model="ir.actions.server" id="empresa.action_server">
+		<field name="name">empresa server</field>
+		<field name="model_id" ref="model_empresa_empresa"/>
+		<field name="state">code</field>
+		<field name="code">
+		action = {
+		"type": "ir.actions.act_window",
+		"view_mode": "tree,form",
+		"res_model": model._name,
+		}
+		</field>
+		</record>
+		-->
+	</data>
 </odoo>
